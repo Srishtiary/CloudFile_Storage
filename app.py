@@ -6,7 +6,7 @@ from flask import render_template
 
 app = Flask(__name__)
 
-AZURE_CONNECTION_STRING = "Connection String"
+AZURE_CONNECTION_STRING = os.environ.get("AZURE_CONNECTION_STRING")
 CONTAINER_NAME = "datastorage"
 
 blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
