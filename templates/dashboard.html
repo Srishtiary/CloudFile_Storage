@@ -88,6 +88,12 @@
     <!-- ✅ Upload response message -->
     <p id="uploadResponse"></p>
 
+     <div id="successSection" style="display: none; text-align: center;">
+      <h2>🎉 Upload Successful!</h2>
+      <p>Your file has been securely uploaded to the cloud.</p>
+      <a href="index.html">← Back to Homepage</a>
+    </div>
+
     <div class="back-link">
       <a href="index.html">← Back to Homepage</a>
     </div>
@@ -96,6 +102,7 @@
   <script>
     const form = document.getElementById("uploadForm");
     const responseMsg = document.getElementById("uploadResponse");
+    const successSection = document.getElementById("successSection")
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -115,11 +122,11 @@
         const data = await res.json();
 
         if (res.ok) {
-          responseMsg.innerHTML = `
-            ✅ <strong>File uploaded successfully!</strong><br>
-          `;
+          form.style.display = "none";
+          responseMsg.style.display = "none";
+          successSection.style.display = "block";
         } else {
-          responseMsg.textContent = `❌ ${data.error}`;
+          responseMsg.textContent = `${data.error}`;
         }
       } catch (err) {
         console.error(err);
