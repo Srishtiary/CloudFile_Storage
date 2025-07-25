@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cloud Drive – AI-powered Cloud Storage & File Sharing</title>
+  <meta name="description" content="Store and share files online with Cloud Drive. AI-powered cloud storage for secure file sharing and enhanced collaboration.">
+  <meta property="og:title" content="Cloud Drive – AI-powered Cloud Storage">
+  <meta property="og:description" content="Store and share files online with Cloud Drive. Enhanced collaboration and secure storage.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    body {
+      font-family: 'Google Sans', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #e8edef;
+      color: #202124;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 24px;
+      align-items: center;
+      border-bottom: 1px solid #dadce0;
+      animation: fadeIn 1s ease forwards;
+    }
+    .workspace-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-text {
+      font-size: 20px;
+      font-weight: 500;
+      background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      margin-left: 30px;
+    }
+    .nav-links a {
+      color: #3c4159;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 8px 0;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #1a73e8;
+    }
+    .nav-actions {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    .nav-btn {
+      padding: 8px 24px;
+      border-radius: 4px;
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .try-btn {
+      background: #1a73e8;
+      color: white;
+    }
+    .try-btn:hover {
+      background: #1765cc;
+    }
+    .signin-btn {
+      color: #1a73e8;
+      border: 1px solid #dadce0;
+      background: white;
+    }
+    .signin-btn:hover {
+      background: #f8f9fa;
+    }
+
+    /* Main Content */
+    .main-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 80px auto;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.5s;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      font-weight: 400;
+    }
+    .subtitle {
+      color: #5f6368;
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* Action Buttons */
+    .action-btns {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    .action-btn {
+      padding: 10px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .action-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .primary-btn {
+      background: #1a73e8;
+      color: white;
+    }
+    .primary-btn:hover {
+      background: #1765cc;
+    }
+    .secondary-btn {
+      background: white;
+      color: #1a73e8;
+      border: 1px solid #dadce0;
+    }
+    .secondary-btn:hover {
+      background: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="workspace-brand">
+      <h1 class="logo-text">Cloud Drive</h1>
+    </div>
+    <nav class="nav-links" aria-label="Primary Navigation">
+      <a href="#">Products</a>
+      <a href="#">Solutions</a>
+      <a href="#">AI</a>
+      <a href="#">Pricing</a>
+      <a href="#">Resources</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="signin.html" class="nav-btn try-btn">Try Drive for Work</a>
+      <a href="signin" class="nav-btn signin-btn">Sign In</a>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>Store and share files online</h1>
+    <p class="subtitle">AI-powered cloud storage for seamless file sharing and enhanced collaboration.</p>
+    <div class="action-btns">
+      <a href="signin" class="action-btn primary-btn">Sign In</a>
+      <a href="#" class="action-btn secondary-btn">Try Drive for Work</a>
+    </div>
+  </main>
+</body>
+</html>

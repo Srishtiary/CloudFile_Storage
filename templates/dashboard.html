@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard – Upload Files | Cloud Drive</title>
+  <meta name="description" content="Upload and manage your files securely in Cloud Drive. Start collaborating in the cloud.">
+  <meta property="og:title" content="Cloud Drive Dashboard">
+  <meta property="og:description" content="Upload and share your files securely in Cloud Drive.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/dashboard.html">
+  <meta property="og:image" content="https://yourdomain.com/images/og-dashboard.jpg">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    body {
+      font-family: 'Google Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      width: 100%;
+      background-color: #1a73e8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1, h2 {
+      margin: 0;
+    }
+    .upload-container {
+      background: white;
+      margin-top: 60px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+    input[type="file"] {
+      display: block;
+      margin: 20px auto;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1765cc;
+    }
+    .back-link {
+      margin-top: 20px;
+    }
+    .back-link a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    #uploadResponse {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #1a73e8;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Cloud Drive</h1>
+  </header>
+
+  <main class="upload-container">
+    <h2>Upload a File</h2>
+
+    <!-- ✅ Add ID to the form for JavaScript -->
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" name="file" aria-label="Choose a file to upload" required />
+      <button type="submit">Upload</button>
+    </form>
+
+    <!-- ✅ Upload response message -->
+    <p id="uploadResponse"></p>
+
+    <div class="back-link">
+      <a href="index.html">← Back to Homepage</a>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById("uploadForm");
+    const responseMsg = document.getElementById("uploadResponse");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fileInput = form.querySelector('input[name="file"]');
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      responseMsg.textContent = "Uploading...";
+
+      try {
+        const res = await fetch("http://127.0.0.1:5000/upload", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          responseMsg.innerHTML = `
+            ✅ <strong>File uploaded successfully!</strong><br>
+          `;
+        } else {
+          responseMsg.textContent = `❌ ${data.error}`;
+        }
+      } catch (err) {
+        console.error(err);
+        responseMsg.textContent = "⚠️ Upload failed. Please try again.";
+      }
+    });
+  </script>
+</body>
+</html>
