@@ -63,8 +63,7 @@ def upload_file():
     except Exception as e:
         return jsonify({"error": f"{type(e).__name__}: {str(e)}"}), 500
 
-
- if __name__ == "__main__":
-     app.run(host='0.0.0.0', port=10000)
+        if __name__ == "__main__":
+    pp.run(host="0.0.0.0", port=10000)
 #if __name__ == "__main__":
 #    app.run(host='127.0.0.1', port=5000, debug=True)
