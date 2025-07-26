@@ -12,11 +12,6 @@ CONTAINER_NAME = "datastorage"
 blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
 
 container_client = blob_service_client.get_container_client(CONTAINER_NAME)
-try:
-    container_client.create_container()
-    print(f"Container '{CONTAINER_NAME}' created.")
-except Exception:
-    print(f"Container '{CONTAINER_NAME}' already exists.")
 
 @app.route("/")
 def home():
@@ -64,6 +59,12 @@ def upload_file():
         return jsonify({"error": f"{type(e).__name__}: {str(e)}"}), 500
 
     if __name__ == "__main__":
-        pp.run(host="0.0.0.0", port=10000)
+    try:
+        container_client.create_container()
+        print(f"Container '{CONTAINER_NAME}' created.")
+    except Exception:
+        print(f"Container '{CONTAINER_NAME}' already exists.")
+
+    app.run(host="0.0.0.0", port=10000)
 #if __name__ == "__main__":
 #    app.run(host='127.0.0.1', port=5000, debug=True)
