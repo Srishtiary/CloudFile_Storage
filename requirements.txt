@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+azure-storage-blob
+python-multipart
+python-dotenv
+pyjwt
+azure-communication-email
+azure-communication-sms
