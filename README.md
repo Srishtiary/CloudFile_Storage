@@ -24,8 +24,6 @@ Uvicorn
 
 Azure Storage Blob SDK
 
-python-multipart
-
 python-jose
 
 Install dependencies:
