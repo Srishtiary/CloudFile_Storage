@@ -1,5 +1,4 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException, Depends, Header
-from fastapi.middleware.cors import CORSMiddleware
 from azure.storage.blob import BlobServiceClient
 from fastapi import Response
 from backend.config import (
@@ -21,17 +20,6 @@ except Exception:
     email_client = None
 
 app = FastAPI()
-
-# CORS setup
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "http://127.0.0.1:5500", "http://localhost:5500"
-    ] if DEV_MODE else ["https://your-frontend-domain.com"],  
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # Azure Blob client
 blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
@@ -176,4 +164,5 @@ async def delete_file(filename: str, user=Depends(require_auth)):
         blob_client.delete_blob()
         return {"message": f"{filename} deleted successfully"}
     except Exception as e:
+
         raise HTTPException(status_code=404, detail=f"File not found or cannot delete: {e}")
