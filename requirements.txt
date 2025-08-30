@@ -5,4 +5,3 @@ python-multipart
 python-dotenv
 pyjwt
 azure-communication-email
-azure-communication-sms
